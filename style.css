@@ -1,0 +1,839 @@
+/* =========================
+   RESET & ROOT VARIABLES
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-primary: #050816;
+    --bg-secondary: #0a0e27;
+    --bg-card: rgba(255, 255, 255, 0.05);
+
+    --text-primary: #ffffff;
+    --text-secondary: #b8c1ec;
+
+    --accent: #00d4ff;
+    --accent2: #8b5cf6;
+    --accent3: #00ffcc;
+
+    --border: rgba(255, 255, 255, 0.08);
+
+    --shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
+
+    --radius: 22px;
+
+    --transition: all 0.35s ease;
+}
+
+body.light-mode {
+    --bg-primary: #f5f7ff;
+    --bg-secondary: #ffffff;
+    --bg-card: rgba(255, 255, 255, 0.9);
+
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+
+    --border: rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+   BODY
+========================= */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(
+        135deg,
+        var(--bg-primary),
+        var(--bg-secondary)
+    );
+    color: var(--text-primary);
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--accent), var(--accent2));
+    border-radius: 20px;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    backdrop-filter: blur(18px);
+    background: rgba(5, 8, 22, 0.7);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar-content {
+    max-width: 1300px;
+    margin: auto;
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+.dark-toggle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(
+        135deg,
+        var(--accent),
+        var(--accent2)
+    );
+    color: white;
+    font-size: 1rem;
+}
+
+/* =========================
+   HAMBURGER
+========================= */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 26px;
+    height: 3px;
+    border-radius: 20px;
+    background: white;
+}
+
+/* =========================
+   LOADING
+========================= */
+.loading-container {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+.loading-spinner {
+    text-align: center;
+}
+
+.spinner {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.1);
+    border-top: 5px solid var(--accent);
+    animation: spin 1s linear infinite;
+    margin: auto auto 15px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================
+   PARTICLES
+========================= */
+.particles {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.particles::before,
+.particles::after {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.3;
+}
+
+.particles::before {
+    background: var(--accent);
+    top: -100px;
+    left: -100px;
+}
+
+.particles::after {
+    background: var(--accent2);
+    bottom: -120px;
+    right: -100px;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+.main-content {
+    padding: 130px 20px 80px;
+}
+
+/* =========================
+   PROFILE
+========================= */
+.profile-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-container {
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+}
+
+.profile-image-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-image {
+    width: 155px;
+    height: 155px;
+    border-radius: 50%;
+    border: 4px solid rgba(255,255,255,0.15);
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+}
+
+.profile-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        var(--accent),
+        var(--accent2)
+    );
+    filter: blur(25px);
+    opacity: 0.6;
+    z-index: 1;
+}
+
+.verified-badge {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: white;
+    color: #0095f6;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    font-size: 1rem;
+}
+
+.profile-name {
+    font-size: 2.8rem;
+    margin-top: 28px;
+    font-weight: 700;
+}
+
+.profile-username {
+    color: var(--accent);
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.profile-bio {
+    margin-top: 18px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* =========================
+   MAIN BUTTON
+========================= */
+.main-button-wrapper {
+    margin-top: 40px;
+}
+
+.main-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 20px 26px;
+    border-radius: 24px;
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(
+        135deg,
+        var(--accent),
+        var(--accent2)
+    );
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.main-button:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+.button-text {
+    flex: 1;
+    text-align: left;
+    font-weight: 600;
+}
+
+.button-icon,
+.button-arrow {
+    font-size: 1.2rem;
+}
+
+.button-glow {
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.15);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.main-button:hover .button-glow {
+    opacity: 1;
+}
+
+/* =========================
+   PROFILE ACTIONS
+========================= */
+.profile-actions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    backdrop-filter: blur(18px);
+    color: var(--text-primary);
+    padding: 14px 22px;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.action-btn:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+}
+
+/* =========================
+   SECTION TITLES
+========================= */
+.section-title {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 45px;
+}
+
+/* =========================
+   SOCIAL GRID
+========================= */
+.social-section {
+    margin-top: 90px;
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.social-card {
+    position: relative;
+    overflow: hidden;
+    padding: 28px;
+    border-radius: var(--radius);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: white;
+    transition: var(--transition);
+    backdrop-filter: blur(18px);
+}
+
+.social-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow);
+}
+
+.social-icon-wrapper {
+    width: 65px;
+    height: 65px;
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    background: rgba(255,255,255,0.08);
+}
+
+.social-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+
+.social-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.social-card .arrow {
+    position: absolute;
+    right: 22px;
+    bottom: 20px;
+    opacity: 0.5;
+}
+
+/* Platform Colors */
+.youtube .social-icon-wrapper {
+    background: rgba(255,0,0,0.15);
+    color: #ff0000;
+}
+
+.tiktok .social-icon-wrapper {
+    background: rgba(0,255,255,0.15);
+    color: #00f2ea;
+}
+
+.instagram .social-icon-wrapper {
+    background: rgba(255,0,140,0.15);
+    color: #ff4ecd;
+}
+
+.twitter .social-icon-wrapper {
+    background: rgba(255,255,255,0.12);
+    color: white;
+}
+
+.discord .social-icon-wrapper {
+    background: rgba(88,101,242,0.15);
+    color: #5865f2;
+}
+
+.telegram .social-icon-wrapper {
+    background: rgba(0,136,204,0.15);
+    color: #0088cc;
+}
+
+.whatsapp .social-icon-wrapper {
+    background: rgba(37,211,102,0.15);
+    color: #25d366;
+}
+
+/* =========================
+   ABOUT SECTION
+========================= */
+.about-section {
+    margin-top: 100px;
+}
+
+.about-container {
+    max-width: 850px;
+    margin: auto;
+}
+
+.about-content {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 35px;
+    border-radius: 28px;
+    backdrop-filter: blur(18px);
+    line-height: 1.9;
+    color: var(--text-secondary);
+}
+
+/* =========================
+   MODALS
+========================= */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    border-radius: 30px;
+    background: var(--bg-secondary);
+    padding: 35px;
+    border: 1px solid var(--border);
+    animation: popup 0.35s ease;
+}
+
+@keyframes popup {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background: rgba(255,255,255,0.08);
+    color: white;
+}
+
+.modal-header {
+    width: 85px;
+    height: 85px;
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    margin: auto auto 25px;
+}
+
+.modal-header.youtube {
+    background: rgba(255,0,0,0.15);
+    color: red;
+}
+
+.modal-header.tiktok {
+    background: rgba(0,255,255,0.15);
+    color: #00f2ea;
+}
+
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.modal-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+}
+
+/* =========================
+   MODAL STATS
+========================= */
+.modal-stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.stat {
+    flex: 1;
+    text-align: center;
+    padding: 18px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.04);
+}
+
+.stat h4 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.stat p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* =========================
+   MODAL BUTTONS
+========================= */
+.modal-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.youtube-button,
+.tiktok-button {
+    text-decoration: none;
+    padding: 18px;
+    border-radius: 18px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    justify-content: center;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.youtube-button {
+    background: linear-gradient(135deg, #ff0000, #ff4d4d);
+}
+
+.tiktok-button {
+    background: linear-gradient(135deg, #111, #00f2ea);
+}
+
+.secondary {
+    opacity: 0.85;
+}
+
+.youtube-button:hover,
+.tiktok-button:hover {
+    transform: scale(1.03);
+}
+
+/* =========================
+   VIDEO PREVIEW
+========================= */
+.video-preview {
+    margin-top: 28px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 22px;
+    overflow: hidden;
+}
+
+.video-thumbnail {
+    height: 200px;
+    background: linear-gradient(
+        135deg,
+        var(--accent),
+        var(--accent2)
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+}
+
+.video-info {
+    padding: 18px;
+}
+
+.vertical .video-thumbnail {
+    height: 360px;
+}
+
+/* =========================
+   SUBSCRIBE / FOLLOW BTN
+========================= */
+.subscribe-btn,
+.follow-btn,
+.download-qr {
+    width: 100%;
+    margin-top: 25px;
+    border: none;
+    padding: 18px;
+    border-radius: 20px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: var(--transition);
+    background: linear-gradient(
+        135deg,
+        var(--accent),
+        var(--accent2)
+    );
+}
+
+.subscribe-btn:hover,
+.follow-btn:hover,
+.download-qr:hover {
+    transform: scale(1.03);
+}
+
+/* =========================
+   QR MODAL
+========================= */
+.qr-modal {
+    text-align: center;
+}
+
+.qr-code-container {
+    margin: 25px 0;
+}
+
+.qr-code {
+    width: 260px;
+    border-radius: 20px;
+}
+
+/* =========================
+   SHARE BUTTONS
+========================= */
+.share-buttons {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 15px;
+}
+
+.share-option {
+    padding: 18px;
+    border-radius: 18px;
+    border: none;
+    background: rgba(255,255,255,0.06);
+    color: white;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.share-option:hover {
+    transform: translateY(-4px);
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+    margin-top: 100px;
+    padding: 40px 20px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+.footer-note {
+    margin-top: 12px;
+    color: var(--text-secondary);
+}
+
+.footer-note i {
+    color: red;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+
+    .nav-links {
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        background: var(--bg-secondary);
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 20px;
+        display: none;
+        width: 220px;
+        border: 1px solid var(--border);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .profile-name {
+        font-size: 2rem;
+    }
+
+    .main-button {
+        padding: 18px;
+    }
+
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-stats {
+        flex-direction: column;
+    }
+
+    .share-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        padding: 28px 22px;
+    }
+      }
