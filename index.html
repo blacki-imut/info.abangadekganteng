@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blacki Imut - Premium Link Bio Profile</title>
+    <meta name="description" content="Link Bio Profile Premium - Kunjungi website resmi, YouTube, TikTok, Instagram, dan platform sosial media lainnya.">
+    <meta name="theme-color" content="#0a0e27">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="logo">
+                <i class="fas fa-link"></i> Blacki Imut
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="#profile">Profil</a>
+                <a href="#social">Sosial</a>
+                <a href="#about">Tentang</a>
+                <button class="dark-toggle" id="darkToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Loading Animation -->
+    <div class="loading-container" id="loadingContainer">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <!-- Particle Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Profile Section -->
+        <section id="profile" class="profile-section">
+            <div class="profile-container">
+                <!-- Profile Header -->
+                <div class="profile-header">
+                    <div class="profile-image-wrapper">
+                        <img src="https://via.placeholder.com/150/0a0e27/00d4ff?text=Blacki+Imut" alt="Blacki Imut" class="profile-image">
+                        <div class="profile-glow"></div>
+                        <span class="verified-badge" title="Verified">
+                            <i class="fas fa-check-circle"></i>
+                        </span>
+                    </div>
+                    
+                    <h1 class="profile-name">Blacki Imut</h1>
+                    <p class="profile-username">@blacki-imut</p>
+                    <p class="profile-bio">Content Creator | Tech Enthusiast | Digital Creator</p>
+                </div>
+
+                <!-- Main CTA Button -->
+                <div class="main-button-wrapper">
+                    <a href="https://adminsecretmod.netlify.app" target="_blank" rel="noopener noreferrer" class="main-button">
+                        <span class="button-icon">
+                            <i class="fas fa-globe"></i>
+                        </span>
+                        <span class="button-text">Kunjungi Website Resmi</span>
+                        <span class="button-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </span>
+                        <div class="button-glow"></div>
+                    </a>
+                </div>
+
+                <!-- Profile Actions -->
+                <div class="profile-actions">
+                    <button class="action-btn copy-link" id="copyLink" title="Copy Profile Link">
+                        <i class="fas fa-link"></i>
+                        <span>Copy Link</span>
+                    </button>
+                    <button class="action-btn share-btn" id="shareBtn" title="Share Profile">
+                        <i class="fas fa-share-alt"></i>
+                        <span>Share</span>
+                    </button>
+                    <button class="action-btn qr-btn" id="qrBtn" title="Show QR Code">
+                        <i class="fas fa-qrcode"></i>
+                        <span>QR Code</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Media Section -->
+        <section id="social" class="social-section">
+            <div class="social-container">
+                <h2 class="section-title">Platform Sosial Media</h2>
+                <p class="section-subtitle">Ikuti dan terhubung dengan saya di berbagai platform</p>
+
+                <div class="social-grid">
+                    <!-- YouTube -->
+                    <a href="javascript:void(0)" class="social-card youtube" data-platform="youtube">
+                        <div class="social-icon-wrapper">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <h3>YouTube</h3>
+                        <p>Video Content</p>
+                        <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- TikTok -->
+                    <a href="javascript:void(0)" class="social-card tiktok" data-platform="tiktok">
+                        <div class="social-icon-wrapper">
+                            <i class="fab fa-tiktok"></i>
+                        </div>
+                        <h3>TikTok</h3>
+                        <p>Short Videos</p>
+                        <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-card instagram">
+                        <div class="social-icon-wrapper">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <h3>Instagram</h3>
+                        <p>Photos & Stories</p>
+                        <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Twitter/X -->
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-card twitter">
+                        <div class="social-icon-wrapper">
+                            <i class="fab fa-x-twitter"></i>
+                        </div>
+                        <h3>X / Twitter</h3>
+                        <p>Updates & Thoughts</p>
+                        <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Discord -->
+                    <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="social-card discord">
+                        <div class="social-icon-wrapper">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <h3>Discord</h3>
+                        <p>Community Server</p>
+                        <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Telegram -->
+                    <a href="https://telegram.org" target="_blank" rel="noopener noreferrer" class="social-card telegram">
+                        <div class="social-icon-wrapper">
+                            <i class="fab fa-telegram"></i>
+                        </div>
+                        <h3>Telegram</h3>
+                        <p>Messages & Updates</p>
+                        <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Saweria -->
+                    <a href="https://saweria.co" target="_blank" rel="noopener noreferrer" class="social-card saweria">
+                        <div class="social-icon-wrapper">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Saweria</h3>
+                        <p>Support Me</p>
+                        <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Trakteer -->
+                    <a href="https://trakteer.id" target="_blank" rel="noopener noreferrer" class="social-card trakteer">
+                        <div class="social-icon-wrapper">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <h3>Trakteer</h3>
+                        <p>Donasi & Tip</p>
+                        <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Facebook -->
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-card facebook">
+                        <div class="social-icon-wrapper">
+                            <i class="fab fa-facebook"></i>
+                        </div>
+                        <h3>Facebook</h3>
+                        <p>Connect & Follow</p>
+                        <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- GitHub -->
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-card github">
+                        <div class="social-icon-wrapper">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <h3>GitHub</h3>
+                        <p>Code & Projects</p>
+                        <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me" target="_blank" rel="noopener noreferrer" class="social-card whatsapp">
+                        <div class="social-icon-wrapper">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3>WhatsApp</h3>
+                        <p>Chat with Me</p>
+                        <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Email -->
+                    <a href="mailto:hello@example.com" class="social-card email">
+                        <div class="social-icon-wrapper">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <p>Get in Touch</p>
+                        <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Spotify -->
+                    <a href="https://spotify.com" target="_blank" rel="noopener noreferrer" class="social-card spotify">
+                        <div class="social-icon-wrapper">
+                            <i class="fab fa-spotify"></i>
+                        </div>
+                        <h3>Spotify</h3>
+                        <p>Music & Playlist</p>
+                        <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Twitch -->
+                    <a href="https://twitch.tv" target="_blank" rel="noopener noreferrer" class="social-card twitch">
+                        <div class="social-icon-wrapper">
+                            <i class="fab fa-twitch"></i>
+                        </div>
+                        <h3>Twitch</h3>
+                        <p>Live Streaming</p>
+                        <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="about-container">
+                <h2 class="section-title">Tentang Saya</h2>
+                <div class="about-content">
+                    <p>Halo! Saya adalah seorang content creator yang passionate dalam membuat konten berkualitas tinggi. Bergabunglah dengan komunitas saya dan ikuti perjalanan digital saya di berbagai platform.</p>
+                    <p>Terima kasih telah mengunjungi link bio profile saya. Jangan lupa untuk subscribe, follow, dan support channel/akun saya!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    
+    <!-- YouTube Modal -->
+    <div class="modal" id="youtubeModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('youtubeModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header youtube">
+                <i class="fab fa-youtube"></i>
+            </div>
+            <h2>YouTube Channel</h2>
+            <p class="modal-subtitle">Tonton video terbaru dan berlangganan channel saya</p>
+            
+            <div class="modal-stats">
+                <div class="stat">
+                    <h4>1.2M+</h4>
+                    <p>Subscriber</p>
+                </div>
+                <div class="stat">
+                    <h4>450+</h4>
+                    <p>Video</p>
+                </div>
+                <div class="stat">
+                    <h4>45M+</h4>
+                    <p>Views</p>
+                </div>
+            </div>
+
+            <div class="modal-buttons">
+                <a href="https://youtube.com/@channel1" target="_blank" rel="noopener noreferrer" class="youtube-button">
+                    <i class="fab fa-youtube"></i>
+                    <span>Channel Utama</span>
+                </a>
+                <a href="https://youtube.com/@channel2" target="_blank" rel="noopener noreferrer" class="youtube-button secondary">
+                    <i class="fas fa-fire"></i>
+                    <span>Channel Kedua</span>
+                </a>
+            </div>
+
+            <div class="video-preview">
+                <div class="video-thumbnail">
+                    <i class="fas fa-play"></i>
+                </div>
+                <div class="video-info">
+                    <h4>Video Terbaru</h4>
+                    <p>1.2M views • 2 hari lalu</p>
+                </div>
+            </div>
+
+            <button class="subscribe-btn" onclick="alert('Subscribe berhasil!')">
+                <i class="fas fa-bell"></i>
+                <span>Subscribe</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- TikTok Modal -->
+    <div class="modal" id="tiktokModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('tiktokModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header tiktok">
+                <i class="fab fa-tiktok"></i>
+            </div>
+            <h2>TikTok Account</h2>
+            <p class="modal-subtitle">Follow untuk konten seru setiap hari</p>
+            
+            <div class="modal-stats">
+                <div class="stat">
+                    <h4>890K+</h4>
+                    <p>Followers</p>
+                </div>
+                <div class="stat">
+                    <h4>320+</h4>
+                    <p>Video</p>
+                </div>
+                <div class="stat">
+                    <h4>32M+</h4>
+                    <p>Likes</p>
+                </div>
+            </div>
+
+            <div class="modal-buttons">
+                <a href="https://tiktok.com/@account1" target="_blank" rel="noopener noreferrer" class="tiktok-button">
+                    <i class="fas fa-music"></i>
+                    <span>Akun Utama</span>
+                </a>
+                <a href="https://tiktok.com/@account2" target="_blank" rel="noopener noreferrer" class="tiktok-button secondary">
+                    <i class="fas fa-rocket"></i>
+                    <span>Akun Kedua</span>
+                </a>
+            </div>
+
+            <div class="video-preview vertical">
+                <div class="video-thumbnail">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+
+            <button class="follow-btn" onclick="alert('Follow berhasil!')">
+                <i class="fas fa-heart"></i>
+                <span>Follow</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- QR Code Modal -->
+    <div class="modal" id="qrModal">
+        <div class="modal-content qr-modal">
+            <button class="modal-close" onclick="closeModal('qrModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>QR Code Profile</h2>
+            <p class="modal-subtitle">Scan untuk membuka profile saya</p>
+            
+            <div class="qr-code-container">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://yourprofile.com" alt="QR Code" class="qr-code">
+            </div>
+
+            <p class="qr-subtitle">Scan dengan kamera HP atau aplikasi QR Code reader</p>
+
+            <button class="download-qr" onclick="downloadQR()">
+                <i class="fas fa-download"></i>
+                <span>Download QR Code</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div class="modal" id="shareModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('shareModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>Share Profile</h2>
+            <p class="modal-subtitle">Bagikan profile saya ke teman-teman</p>
+            
+            <div class="share-buttons">
+                <button class="share-option" onclick="shareToWhatsApp()">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </button>
+                <button class="share-option" onclick="shareToTelegram()">
+                    <i class="fab fa-telegram"></i>
+                    <span>Telegram</span>
+                </button>
+                <button class="share-option" onclick="shareToTwitter()">
+                    <i class="fab fa-x-twitter"></i>
+                    <span>Twitter</span>
+                </button>
+                <button class="share-option" onclick="shareToFacebook()">
+                    <i class="fab fa-facebook"></i>
+                    <span>Facebook</span>
+                </button>
+                <button class="share-option" onclick="copyShareLink()">
+                    <i class="fas fa-link"></i>
+                    <span>Copy Link</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Blacki Imut. All rights reserved.</p>
+            <p class="footer-note">Made with <i class="fas fa-heart"></i> by Blacki Imut</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+  </html>
